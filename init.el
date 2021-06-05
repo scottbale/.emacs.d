@@ -3,21 +3,8 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; TLS
-(custom-set-variables
- '(gnutls-algorithm-priority "normal:-vers-tls1.3"))
-
 ;; Set up stock dark color theme early in case of downstream errors
 (load-theme 'misterioso t)
-
-;; OS X meta keys
-(setq mac-option-key-is-meta nil)
-(setq mac-command-key-is-meta t)
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
-
-;; No splash screen.
-(setq inhibit-startup-message t)
 
 ;; Set up load paths.
 (setq settings-dir
@@ -29,6 +16,9 @@
 (if (not (file-exists-p custom-file))
     (write-region "" nil custom-file))
 (load custom-file)
+
+;; Hook for Mac meta key if necessary
+(require 'setup-mac)
 
 ;; Load global editor settings.
 (require 'global-settings)
