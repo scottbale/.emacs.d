@@ -18,7 +18,8 @@
 (load custom-file)
 
 ;; Hook for Mac meta key if necessary
-(require 'setup-mac)
+(if (file-exists-p (expand-file-name "setup-mac.el" settings-dir))
+    (require 'setup-mac))
 
 ;; Load global editor settings.
 (require 'global-settings)
