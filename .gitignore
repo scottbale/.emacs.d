@@ -1,0 +1,10 @@
+.smex-items
+auto-save-list
+custom.el
+ido.last
+places
+projectile-bookmarks.eld
+recentf
+backups/
+elpa/
+eshell/
