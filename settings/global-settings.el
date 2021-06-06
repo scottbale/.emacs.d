@@ -9,6 +9,9 @@
 (set-default 'indent-tabs-mode nil)
 (set-default 'tab-width 2)
 
+;; Display line numbers
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
 ;; Replace selected text on new text entry.
 (pending-delete-mode t)
 
