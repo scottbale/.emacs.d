@@ -6,6 +6,9 @@ repo after I realized my config didn't vary by OS except for changing the meta k
 
 Inspired by [rcdickerson](https://github.com/rcdickerson/.emacs.d).
 
+macOS config is enabled by default. Prior to starting Emacs, `settings/setup-mac.el` can be safely
+deleted and initialization will continue without it.
+
 Install Emacs
 -------------
 
@@ -16,3 +19,4 @@ On macOS Big Sur, using Homebrew, I did
 For Ubuntu, I did
 
     apt-get install -y emacs25
+
