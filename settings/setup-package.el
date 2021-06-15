@@ -1,5 +1,12 @@
 (require 'package)
-(require 'cl)
+(require 'cl-macs)
+
+;; (setq package-enable-at-startup nil)
+;; -----work around gnu package archive
+;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;; (setq package-check-signature nil)
+;; (package-initialize)
+
 
 (add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
 ;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -14,7 +21,7 @@
      (packages-install packages))))
 
 (defun packages-install (packages)
-  (loop for p in packages
+  (cl-loop for p in packages
     when (not (package-installed-p p))
       do (package-install p))
   (delete-other-windows))
