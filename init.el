@@ -29,8 +29,6 @@
 
 (install-missing-packages
  '(ivy
-   better-defaults
-   idle-highlight-mode
    swiper
    counsel
    projectile
@@ -38,18 +36,28 @@
    solarized-theme
    clojure-mode
    paredit
-   haskell-mode
    markdown-mode
    js2-mode
-   php-mode
    yaml-mode
-   groovy-mode
    flycheck
    exec-path-from-shell
    cider
-   go-mode
    dockerfile-mode
+   lsp-mode
    ))
+
+;; other packages I sometimes use
+;; nodejs-repl
+;; php-mode
+;; scala-mode
+;; swift-mode
+;; dart-mode
+;; lsp-dart
+;; csharp-mode
+;; fuel - major mode for Factor
+;; go-mode
+;; groovy-mode
+;; haskell-mode
 
 ;; Load configurations.
 (require 'setup-projectile)

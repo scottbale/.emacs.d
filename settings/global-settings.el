@@ -76,6 +76,9 @@
 (auto-fill-mode -1)
 (remove-hook 'text-mode-hook 'turn-on-auto-fill)
 
+;; store backups in .emacs.d/ subfolder
+(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b"))))
 
