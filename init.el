@@ -37,6 +37,7 @@
    clojure-mode
    paredit
    markdown-mode
+   treemacs
    js2-mode
    yaml-mode
    flycheck
