@@ -62,6 +62,7 @@
 
 ;; Load configurations.
 (require 'setup-projectile)
+(require 'setup-treemacs)
 (require 'setup-markdown)
 (require 'setup-color-theme)
 (require 'setup-exec-path-from-shell)

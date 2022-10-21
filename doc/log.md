@@ -92,10 +92,33 @@ updated a bunch of emacs packages
 * `C-x 0` while on treemacs pane closes it but `C-x 1` on any other pane leaves it open
 * keybindings while in treemacs pane:
   * `?` "summon helpful hydra"
-  * `o c` close treemacs (while in pane)
-  * `tab` opens/closes folder
+  * `o c` close treemacs
+  * `tab` opens/closes node
   * `M n|p` navigates between neighbors
-* TBD
-  * What would be a good keybinding to open (and/or navigate to) treemacs pane?
+  * `H` collapse parent node
+  * `C-c C-p c c` collapse project
+* Created `setup-treemacs.el` setting file
+  * `C-c t` to invoke `treemacs-select-window`
 
 Sandra Sierra's [emacs config](https://github.com/stuartsierra/dotfiles/tree/bf224ce71ec7e6434293a650449e6c648c4f2a63/.emacs.d)
+
+TIL bookmarks
+
+* `C-x r m` (mnemonic: ReMember) - set a bookmark, give it a name
+* `C-x r b` bookmark jump (mnemonic: Recall Bookmark)
+* `M-x list-bookmarks` brings up buffer listing bookmarks
+  * `m` to mark a bookmark
+  * `d` to mark a bookmark for deletion
+  * `x` to e.g. delete bookmarks marked for deletion
+
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
+https://www.masteringemacs.org/article/mastering-key-bindings-emacs
+https://www.braveclojure.com/basic-emacs/
+
+## 22/10/19
+
+Cider TIL
+
+* [xref](https://metaredux.com/posts/2019/12/11/hard-cider-find-usages.html)
+  * `cider-xref-fn-refs-select C-c C-? C-r` known limitations
+  * `cider-xref-fn-deps-select C-c C-? C-d`

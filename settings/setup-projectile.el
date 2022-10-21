@@ -5,7 +5,4 @@
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-;; always sync treemacs pane with current projectile project
-(treemacs-project-follow-mode)
-
 (provide 'setup-projectile)
