@@ -137,3 +137,17 @@ Interconnectedness of `require`, `provide`, and `load-path`
 Use both `melpa` and `melpa-stable` package archives - now `ivy-xref` is available.
 
 Got `ivy-xref` working (see `init.el`) - so lsp xref matches show in minibuffer
+
+How does one decide whether to tweak a setting in normal emacs config or in `custom.el`? For example, `initial-frame-alist`
+
+* In normal config
+
+``` emacs-lisp
+(setq initial-frame-alist '((top . 0) (left . 0) (width . 271) (height . 73)))
+```
+
+* In `custom.el`
+
+``` emacs-lisp
+'(initial-frame-alist '((top . 0) (left . 0) (width . 271) (height . 73)))
+```
