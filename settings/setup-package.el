@@ -8,8 +8,10 @@
 ;; (package-initialize)
 
 
-(add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("stable-melpa" . "https://stable.melpa.org/packages/") t)
 ;; (add-to-list 'package-archives '("melpa-unstable" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
 
 (package-initialize)
 

@@ -70,6 +70,9 @@ Okay ignore all of the preceding.
 * I interactively invoked `lsp` with prefix, `C-u M-x lsp`, which then prompted me to choose a specific language server, and `clojure-lsp` was one choice.
 * Prompted me to choose project root, gave me multiple choices (I choice first option)
 * Got a message that it was unable to configure `company`
+
+        Unable to autoconfigure company-mode
+
 * Questions
   * How do I get emacs to automatically enable lsp-mode for a Clojure buffer
   * Will it reuse the same running lsp process for that project? Looks like yes (when I manually `lsp` in a buffer in the same project)
@@ -100,8 +103,6 @@ updated a bunch of emacs packages
 * Created `setup-treemacs.el` setting file
   * `C-c t` to invoke `treemacs-select-window`
 
-Sandra Sierra's [emacs config](https://github.com/stuartsierra/dotfiles/tree/bf224ce71ec7e6434293a650449e6c648c4f2a63/.emacs.d)
-
 TIL bookmarks
 
 * `C-x r m` (mnemonic: ReMember) - set a bookmark, give it a name
@@ -122,3 +123,17 @@ Cider TIL
 * [xref](https://metaredux.com/posts/2019/12/11/hard-cider-find-usages.html)
   * `cider-xref-fn-refs-select C-c C-? C-r` known limitations
   * `cider-xref-fn-deps-select C-c C-? C-d`
+
+
+## 22/10/25
+
+Investigating redoing my emacs config with `use-package`, following example of Sandra Sierra
+
+* [use-package](https://github.com/jwiegley/use-package)
+* Sandra Sierra's [emacs config](https://github.com/stuartsierra/dotfiles/tree/bf224ce71ec7e6434293a650449e6c648c4f2a63/.emacs.d)
+
+Interconnectedness of `require`, `provide`, and `load-path`
+
+Use both `melpa` and `melpa-stable` package archives - now `ivy-xref` is available.
+
+Got `ivy-xref` working (see `init.el`) - so lsp xref matches show in minibuffer

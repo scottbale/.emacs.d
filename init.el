@@ -28,7 +28,8 @@
 (require 'setup-package)
 
 (install-missing-packages
- '(ivy
+ '(company
+   ivy
    swiper
    counsel
    projectile
@@ -45,6 +46,7 @@
    cider
    dockerfile-mode
    lsp-mode
+   ivy-xref
    ))
 
 ;; other packages I sometimes use
@@ -71,3 +73,12 @@
 (require 'setup-flyspell)
 (require 'setup-ivy)
 (require 'key-bindings)
+
+;; following is unorganized stuff TODO
+
+;; lsp-mode
+(add-hook 'clojure-mode-hook 'lsp)
+
+;; ivy-xref (so that lsp xref, etc., results show in minibuffer)
+(setq xref-show-definitions-function #'ivy-xref-show-defs)
+(setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
