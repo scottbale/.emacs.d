@@ -115,6 +115,7 @@ TIL bookmarks
 https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
 https://www.masteringemacs.org/article/mastering-key-bindings-emacs
 https://www.braveclojure.com/basic-emacs/
+https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html
 
 ## 22/10/19
 
@@ -151,3 +152,6 @@ How does one decide whether to tweak a setting in normal emacs config or in `cus
 ``` emacs-lisp
 '(initial-frame-alist '((top . 0) (left . 0) (width . 271) (height . 73)))
 ```
+
+Redid settings with `use-package` in branch of same name
+
