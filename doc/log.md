@@ -155,3 +155,13 @@ How does one decide whether to tweak a setting in normal emacs config or in `cus
 
 Redid settings with `use-package` in branch of same name
 
+
+## 22/10/31
+
+TODO
+
+* mac meta keys can be made conditional
+* local config (e.g. frame size) could go in `local.el` rather than `custom.el`, TBD whether needs VC
+* always open treemacs window?
+* always display line numbers?
+
