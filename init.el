@@ -6,6 +6,10 @@
 ;; Set up stock dark color theme early in case of downstream errors
 (load-theme 'misterioso t)
 
+;; make font bigger
+;; (set-face-attribute 'default nil :height 160)
+;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 271) (height . 73)))
+
 ;; Keep custom settings in a separate file.
 ;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq custom-file (locate-user-emacs-file "custom.el"))
@@ -228,6 +232,9 @@
   :hook ((clojure-mode . paredit-mode)
          (emacs-lisp-mode . paredit-mode)))
 
+;; temporary workaround https://github.com/Alexander-Miller/treemacs/issues/1017#issuecomment-1515602288
+(add-to-list 'image-types 'svg)
+
 (use-package lsp-mode
   :defer t
   :ensure t
@@ -263,3 +270,6 @@
 (use-package js2-mode :defer t :ensure t :pin melpa-stable)
 (use-package yaml-mode :defer t :ensure t :pin melpa-stable)
 (use-package dockerfile-mode :defer t :ensure t :pin melpa-stable)
+
+(provide 'init)
+;;; init.el ends here

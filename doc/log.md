@@ -69,7 +69,7 @@ Okay ignore all of the preceding.
 * I opened a sample namespace in a Clojure project
 * I interactively invoked `lsp` with prefix, `C-u M-x lsp`, which then prompted me to choose a specific language server, and `clojure-lsp` was one choice.
 * Prompted me to choose project root, gave me multiple choices (I choice first option)
-* Got a message that it was unable to configure `company`
+* Got a message that it was unable to configure [company](https://company-mode.github.io/)
 
         Unable to autoconfigure company-mode
 
@@ -165,3 +165,42 @@ TODO
 * always open treemacs window?
 * always display line numbers?
 
+
+## 23/02/20
+
+Should I use this? (Instead of `ivy-xref`?) https://github.com/emacs-lsp/lsp-ivy/
+
+
+## 23/07/03
+
+Updated emacs packages. Sample from `*Compile-Log*` buffer:
+
+    Compiling file /Users/scott.bale/.emacs.d/elpa/treemacs-20230701.1028/treemacs-annotations.el at Mon Jul  3 11:35:51 2023
+    Entering directory ‘/Users/scott.bale/.emacs.d/elpa/treemacs-20230701.1028/’
+    treemacs-annotations.el:27:1: Error: Invalid image type ‘svg’
+
+* According to
+  [this](https://emacs.stackexchange.com/questions/74289/emacs-28-2-error-in-macos-ventura-image-type-invalid-image-type-svg),
+  this is an issue w/ emacs 28 in MacOS Ventura and fix is coming in emacs 29.
+* There's also an [emacs-lsp issue](https://github.com/emacs-lsp/lsp-mode/issues/4054)
+* [suggested workaround](https://github.com/Alexander-Miller/treemacs/issues/1017#issuecomment-1515602288)
+
+Now `lsp-mode` won't even start. I get the following error in the status bar:
+
+    file mode specification error: (error Invalid image type 'svg')
+
+Things to try later
+
+* [suggested workaround](https://github.com/Alexander-Miller/treemacs/issues/1017#issuecomment-1515602288)
+
+        (add-to-list 'image-types 'svg)
+
+  worked!
+* debug error (toggle emacs enter debug on error)
+* Uninstall `treemacs` and `lsp-treemacs`
+* Install `librsvg`? https://www.reddit.com/r/emacs/comments/z2kq1d/help_a_newbie_out/ixk4o30/
+
+        brew install emacs-mac --with-librsvg
+
+* Upgrade to emacs 29 (via homebrew? currently emacs is installed via cask `brew info homebrew/cask/emacs`)
+  * [bug report](https://debbugs.gnu.org/cgi/bugreport.cgi?bug=59081)
