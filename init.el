@@ -242,6 +242,8 @@
   :hook ((clojure-mode . lsp)
          (clojurec-mode . lsp)
          (clojurescript-mode . lsp))
+  :bind ("C-c g r" . lsp-find-references)
+  :init (setq lsp-enable-indentation nil)
   :config
   (dolist (m '(clojure-mode
                clojurec-mode

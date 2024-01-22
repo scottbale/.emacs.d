@@ -204,3 +204,20 @@ Things to try later
 
 * Upgrade to emacs 29 (via homebrew? currently emacs is installed via cask `brew info homebrew/cask/emacs`)
   * [bug report](https://debbugs.gnu.org/cgi/bugreport.cgi?bug=59081)
+
+
+## 24/01/22
+
+Logged `clojure-lsp` [issue 1758](https://github.com/clojure-lsp/clojure-lsp/issues/1758)
+
+Quick debugging recap
+
+* Workaround: set variable `lsp-enable-indentation` to `nil` to disable LSP rangeFormatting (I did this in `init.el`)
+* From clojure buffer
+  * open clojure-lsp server log buffer via `M-x lsp-clojure-server-log`
+  * https://emacs-lsp.github.io/lsp-mode/page/troubleshooting/
+    * Set `lsp-log-io` to `t` to inspect communication between client and the server
+      `M-:` to eval an expression in the minibuffer
+      `(setq lsp-log-io t)` for the session only
+    * `M-x lsp-workspace-show-log`
+  * Attempt the paredit barfage
