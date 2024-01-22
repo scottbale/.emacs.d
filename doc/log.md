@@ -221,3 +221,14 @@ Quick debugging recap
       `(setq lsp-log-io t)` for the session only
     * `M-x lsp-workspace-show-log`
   * Attempt the paredit barfage
+
+Greg released a fix in a nightly, testing it out...
+
+* In Clojurians Slack, #clojure-lsp-builds
+* https://clojure-lsp.io/clients/#emacs documents steps to configure an alternate (e.g. nightly) clojure-lsp server path
+* https://clojure-lsp.io/installation/ has notes about different builds, recommends the native build (which is what I am currently using via homebrew)
+* downloaded [amd64 native build](https://github.com/clojure-lsp/clojure-lsp-dev-builds/releases/download/2024.01.22-20.04.46-nightly/clojure-lsp-native-macos-amd64.zip)
+  * unzip to `~/dev/temp/clojure-lsp/`
+  * Set var `lsp-clojure-custom-server-command` to point to this path (added `(setq lsp-clojure-custom-server-command '("/Users/myusername/dev/temp/clojure-lsp"))` under `:config` for `lsp-mode` in `init.el`)
+  * MacOS complained that the nightly is unverified, so I had to open it from the finder and insist that it open. https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac
+* Re-enabled LSP rangeformatting and verbose client/server communication, then verified that everything worked
