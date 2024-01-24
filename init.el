@@ -242,7 +242,7 @@
   :hook ((clojure-mode . lsp)
          (clojurec-mode . lsp)
          (clojurescript-mode . lsp))
-  :bind ("C-c g r" . lsp-find-references)
+  :bind-keymap ("C-c l" . lsp-command-map)
   :init (setq lsp-enable-indentation nil)
   :config
   (dolist (m '(clojure-mode
@@ -251,13 +251,18 @@
                clojurex-mode))
      (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
-;; (use-package lsp-ui
-;;   :defer t
-;;   :ensure t
-;;   :pin melpa-stable
-;;   :commands lsp-ui-mode)
+(use-package lsp-ui
+  :defer t
+  :ensure t
+  :pin melpa-stable
+  :commands lsp-ui-mode)
 
 (use-package lsp-treemacs
+  :defer t
+  :ensure t
+  :pin melpa-stable)
+
+(use-package lsp-ivy
   :defer t
   :ensure t
   :pin melpa-stable)
