@@ -232,3 +232,19 @@ Greg released a fix in a nightly, testing it out...
   * Set var `lsp-clojure-custom-server-command` to point to this path (added `(setq lsp-clojure-custom-server-command '("/Users/myusername/dev/temp/clojure-lsp"))` under `:config` for `lsp-mode` in `init.el`)
   * MacOS complained that the nightly is unverified, so I had to open it from the finder and insist that it open. https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac
 * Re-enabled LSP rangeformatting and verbose client/server communication, then verified that everything worked
+
+
+## 24/01/24
+
+How does XREF relate to e.g. CIDER, LSP? https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html
+
+### LSP
+
+https://github.com/emacs-lsp/lsp-ivy/
+https://github.com/jwiegley/use-package#binding-to-keymaps very helpful in configuring LSP mode
+
+#### workspace / session
+
+lsp-mode "session" corresponds to LSP server "workspace" https://github.com/emacs-lsp/lsp-mode/discussions/3095
+
+* `M-x lsp-describe-session`

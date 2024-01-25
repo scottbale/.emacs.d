@@ -140,9 +140,9 @@
 
 (use-package company :defer t :ensure t :pin melpa-stable)
 
-(use-package markdown-mode 
-  :defer t 
-  :ensure t 
+(use-package markdown-mode
+  :defer t
+  :ensure t
   :pin melpa-stable
   :mode ("\\.md\\'" . gfm-mode))
 
@@ -182,7 +182,7 @@
   :ensure t
   :pin melpa-stable
   :bind-keymap ("C-c p" . projectile-command-map)
-  :config 
+  :config
   (setq projectile-completion-system 'ivy)
   (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/" . 1) ("~/dev/clojure/" . 1)))
   (projectile-mode 1))
@@ -223,17 +223,18 @@
 (use-package cider
   :defer t
   :ensure t
-  :pin melpa-stable)
+  :pin melpa-stable
+  :bind ("C-x M-e" . cider-pprint-eval-last-sexp-to-repl))
 
 (use-package paredit
   :defer t
   :ensure t
   :pin melpa-stable
   :hook ((clojure-mode . paredit-mode)
-         (emacs-lisp-mode . paredit-mode)))
-
-;; temporary workaround https://github.com/Alexander-Miller/treemacs/issues/1017#issuecomment-1515602288
-(add-to-list 'image-types 'svg)
+         (emacs-lisp-mode . paredit-mode))
+  ;; conflicts with `xref-find-reference`, and I never use
+  ;; `paredit-convolute-sexp`
+  :config (unbind-key "M-?" paredit-mode-map))
 
 (use-package lsp-mode
   :defer t
