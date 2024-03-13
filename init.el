@@ -267,7 +267,12 @@
 (use-package lsp-treemacs
   :defer t
   :ensure t
-  :pin melpa-stable)
+  :pin melpa-stable
+  :hook (lsp-treemacs-after-jump . (lambda () (kill-buffer lsp-treemacs-symbols-buffer-name)))
+  :bind (:map lsp-command-map
+              ("g s" . lsp-treemacs-symbols)
+              ("g S" . lsp-treemacs-symbols-goto-symbol)
+              ("g c" . lsp-treemacs-call-hierarchy)))
 
 (use-package lsp-ivy
   :defer t
