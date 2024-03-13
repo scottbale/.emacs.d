@@ -32,6 +32,9 @@
 
 ;; Display line numbers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'yaml-mode-hook 'display-line-numbers-mode)
+(add-hook 'conf-unix-mode-hook 'display-line-numbers-mode)
+(add-hook 'gfm-mode-hook 'display-line-numbers-mode)
 
 ;; Replace selected text on new text entry.
 (pending-delete-mode t)
@@ -112,6 +115,9 @@
 
 ;; Mimic native macOX toggling between windows of same app
 (global-set-key (kbd "M-`") 'ns-next-frame)
+
+;; Use conf-mode for GitHub CODEOWNERS file
+(add-to-list 'auto-mode-alist '("/CODEOWNERS" . conf-mode))
 
 ;;; use-package initialization
 
