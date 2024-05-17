@@ -248,3 +248,12 @@ https://github.com/jwiegley/use-package#binding-to-keymaps very helpful in confi
 lsp-mode "session" corresponds to LSP server "workspace" https://github.com/emacs-lsp/lsp-mode/discussions/3095
 
 * `M-x lsp-describe-session`
+
+
+## 24/03/20
+
+TIL when cider spews an error message to the minibuffer, it is also in `*Messages*` buffer.
+
+* [Messages Buffer](https://www.emacswiki.org/emacs/MessagesBuffer)
+* [Echo Area](https://www.emacswiki.org/emacs/EchoArea)
+* [Mini Buffer](https://www.emacswiki.org/emacs/MiniBuffer)

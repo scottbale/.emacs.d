@@ -1,7 +1,6 @@
 .lsp-session-v1
 .smex-items
 auto-save-list
-custom.el
 ido.last
 places
 projectile.cache

@@ -6,9 +6,10 @@
 ;; Set up stock dark color theme early in case of downstream errors
 (load-theme 'misterioso t)
 
-;; make font bigger
+;; make font bigger (see also custom.el 'initial-frame-alist TODO)
 ;; (set-face-attribute 'default nil :height 160)
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 271) (height . 73)))
+;; this doesn't seem to have any effect, or is overriden by custom.el:
+;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 100) (height . 73)))
 
 ;; Keep custom settings in a separate file.
 ;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -252,6 +253,8 @@
   :bind-keymap ("C-c l" . lsp-command-map)
   :init (setq lsp-enable-indentation nil)
   :config
+  (setq lsp-enable-file-watchers nil)
+  (setq lsp-file-watch-threshold 500)
   (dolist (m '(clojure-mode
                clojurec-mode
                clojurescript-mode
