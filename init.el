@@ -121,9 +121,10 @@
 (add-to-list 'auto-mode-alist '("/CODEOWNERS" . conf-mode))
 
 ;;; use-package initialization
+(when (version< emacs-version "29")
+  (error "Emacs version 29+ required for use-package"))
 
-(eval-when-compile
-  (require 'use-package))
+(require 'package)
 
 ;;; additional ELPA package archives
 
