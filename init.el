@@ -192,7 +192,7 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-completion-system 'ivy)
-  (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/" . 1) ("~/dev/clojure/" . 1)))
+  (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/" . 1) ("~/dev/repo/" . 1)))
   (projectile-mode 1))
 
 (use-package treemacs
@@ -211,7 +211,7 @@
   :if (memq window-system '(mac ns x))
   :ensure t
   :pin melpa-stable
-  :init (setq exec-path (append exec-path '("/usr/local/bin")))
+  ;; :init (setq exec-path (append exec-path '("/opt/homebrew/bin")))
   :config (exec-path-from-shell-initialize))
 
 (use-package clojure-mode

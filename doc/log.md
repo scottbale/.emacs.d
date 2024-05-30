@@ -257,3 +257,16 @@ TIL when cider spews an error message to the minibuffer, it is also in `*Message
 * [Messages Buffer](https://www.emacswiki.org/emacs/MessagesBuffer)
 * [Echo Area](https://www.emacswiki.org/emacs/EchoArea)
 * [Mini Buffer](https://www.emacswiki.org/emacs/MiniBuffer)
+
+## 24/05/30
+
+A couple of lessons learned / reminders from setting up my new work laptop
+
+* `brew install --cask emacs`
+* initial trouble contacting elpa/melpa b/c of my flaky wifi
+* `use-package` was being initialized wrong but I didn't realize it on old macbook
+  * needed `(require 'package)`, was able to delete `bootstrap.el`
+* `clojure-lsp` is [brew-installed](https://clojure-lsp.io/installation/#homebrew-macos-and-linux)
+* `exec-path-from-shell` is needed so that `clojure-lsp` is in `exec-path`
+  * the shell that emacs launches is determined by `chsh`/`$SHELL`
+* `C-x C-e` to eval s-expr at point
