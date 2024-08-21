@@ -270,3 +270,22 @@ A couple of lessons learned / reminders from setting up my new work laptop
 * `exec-path-from-shell` is needed so that `clojure-lsp` is in `exec-path`
   * the shell that emacs launches is determined by `chsh`/`$SHELL`
 * `C-x C-e` to eval s-expr at point
+
+
+## 24/07/27
+
+Why is emacs so laggy when I'm typing in a buffer?
+
+* `M-x profiler-start`, accept `cpu` default
+* do the thing that is laggy
+* `M-x profiler-stop`
+* `M-x profiler-report`, drill down into report
+
+Using this, I discovered that `markdown-match-italic` function was using 47% CPU in a buffer for a
+specific markdown file. This was embedded within a larger subtree of font lock mode which was taking
+60% CPU. Disabling font-lock minor mode helped `M-x font-lock-mode`.
+
+
+## 24/08/21
+
+In cider's package init, I set `cider-clojure-cli-aliases` variable so it is ":dev:test" by default.

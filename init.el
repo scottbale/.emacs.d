@@ -232,7 +232,9 @@
   :defer t
   :ensure t
   :pin melpa-stable
-  :bind ("C-x M-e" . cider-pprint-eval-last-sexp-to-repl))
+  :bind ("C-x M-e" . cider-pprint-eval-last-sexp-to-repl)
+  ;; A list of aliases to include when using the clojure cli.
+  :config (setq cider-clojure-cli-aliases ":dev:test"))
 
 (use-package paredit
   :defer t
