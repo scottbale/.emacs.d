@@ -289,3 +289,13 @@ specific markdown file. This was embedded within a larger subtree of font lock m
 ## 24/08/21
 
 In cider's package init, I set `cider-clojure-cli-aliases` variable so it is ":dev:test" by default.
+
+
+## 24/08/22
+
+Scheme in Emacs
+
+* `brew install mit-scheme` - now `scheme` is in the path
+* `C-h v scheme-program-name` defaults to `scheme`
+* `M-x run-scheme` - opens a repl
+* https://www.emacswiki.org/emacs/ExScheme
