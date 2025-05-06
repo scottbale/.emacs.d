@@ -3,11 +3,13 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; Set up stock dark color theme early in case of downstream errors
-(load-theme 'misterioso t)
+;; Set up stock theme early in case of downstream errors
+;; (load-theme 'misterioso t)     ;; dark
+;; (load-theme 'modus-vivendi t)  ;; dark
+(load-theme 'modus-operandi t) ;; light
 
 ;; make font bigger (see also custom.el 'initial-frame-alist TODO)
-;; (set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 150)
 ;; this doesn't seem to have any effect, or is overriden by custom.el:
 ;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 100) (height . 73)))
 
@@ -142,7 +144,7 @@
   :if window-system
   :ensure t
   :pin melpa-stable
-  :config (load-theme 'solarized-dark t))
+  :config (load-theme 'solarized-light t))
 
 (use-package company :defer t :ensure t :pin melpa-stable)
 
