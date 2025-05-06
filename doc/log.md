@@ -299,3 +299,19 @@ Scheme in Emacs
 * `C-h v scheme-program-name` defaults to `scheme`
 * `M-x run-scheme` - opens a repl
 * https://www.emacswiki.org/emacs/ExScheme
+
+
+## 24/09/02
+
+to tweak font size, modify `set-face-attribute` height in `init.el`, and make corresponding change to `initial-aframe-alist` width in `custom-el`. These pairs of value work for my external monitor.
+
+* for default face attribute, use width of `271`
+* for height of `150`, use width of `211`
+* for height of `160`, use width of `190`
+
+
+## 25/03/24
+
+wrap/unwrap lines `M-x toggle-truncate-lines`
+
+line numbers `M-x display-line-numbers-mode`
