@@ -14,7 +14,7 @@
    '((projectile-project-test-cmd . "clojure -M:dev:test") (projectile-project-test-cmd . "make")))
  '(initial-frame-alist '((top . 0) (left . 0) (width . 211) (height . 73)))
  '(package-selected-packages
-   '(better-defaults cider clojure-mode company counsel dart-mode dockerfile-mode elixir-mode
+   '(better-defaults cider clojure-mode company counsel dart-mode dockerfile-mode dumb-jump elixir-mode
                      exec-path-from-shell flycheck go-mode idle-highlight-mode ivy ivy-xref js2-mode
                      kotlin-mode lsp-ivy lsp-mode lsp-treemacs lsp-ui markdown-mode paredit
                      plantuml-mode projectile solarized-dark solarized-theme swiper treemacs

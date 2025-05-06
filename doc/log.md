@@ -315,3 +315,28 @@ to tweak font size, modify `set-face-attribute` height in `init.el`, and make co
 wrap/unwrap lines `M-x toggle-truncate-lines`
 
 line numbers `M-x display-line-numbers-mode`
+
+
+## 25/05/05
+
+[xref refresher](https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html)
+
+* `M-.` maps to `xref-find-definition`
+* `M-?` maps to `xref-find-references`
+* modes can provide xref backends
+  * `xref-backend-functions` variable: list of functions, mode-dependent
+* "completing read" refers to interactively prompting user for input e.g. when multiple matches are
+  to be chosen from.
+
+I installed [dumb-jump](https://github.com/jacktasia/dumb-jump) package and initial results are
+promising. By using its xref backend, I can do `M-.` at a symbol to jump to its definition. Using
+`xref-show-definitions-completing-read`, I get the ivy integration if there is more than one search
+result.
+
+`dump-jump` recommends [installing ripgrep](https://github.com/BurntSushi/ripgrep#installation) but
+I have not yet.
+
+`dump-jump` uses `git grep` when it is available. Unfortunately, `git grep` stopped working for
+`dump-jump` (see https://github.com/jacktasia/dumb-jump/issues/428 and
+https://github.com/jacktasia/dumb-jump/issues/448) so I configured `dump-jump` to use ordinary
+`grep`. If that ever proves to be too slow I may try ripgrep.

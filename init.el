@@ -126,6 +126,9 @@
 
 (require 'package)
 
+;; Don't append `-hook` to hook function names in `:hook`
+;; (setq use-package-hook-name-suffix nil)
+
 ;;; additional ELPA package archives
 
 (add-to-list 'package-archives
@@ -194,6 +197,19 @@
   (setq projectile-completion-system 'ivy)
   (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/" . 1) ("~/dev/repo/" . 1)))
   (projectile-mode 1))
+
+(use-package dumb-jump
+  :defer t
+  :ensure t
+  :pin melpa-stable
+  ;; Can't do :hook here because `xref-backend-functions` doesn't end with `-hook` suffix
+  ;; :hook (xref-backend-functions . dumb-jump-xref-activate)
+  :init
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  :config
+  ;; (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
+  ;; `git grep` won't work https://github.com/jacktasia/dumb-jump/issues/428
+  (setq dumb-jump-force-searcher 'grep))
 
 (use-package treemacs
   :defer t

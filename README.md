@@ -36,3 +36,4 @@ Some links and notes (mostly to self) about the packages I mainly use.
   * [treemacs-projectile](https://github.com/Alexander-Miller/treemacs)
 * [lsp-mode](https://github.com/emacs-lsp/lsp-mode) - Language Server Protocol Support for Emacs
   * [lsp-treemacs](https://github.com/emacs-lsp/lsp-treemacs)
+* [cider](https://github.com/clojure-emacs/cider)
