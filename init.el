@@ -296,5 +296,14 @@
 (use-package yaml-mode :defer t :ensure t :pin melpa-stable)
 (use-package dockerfile-mode :defer t :ensure t :pin melpa-stable)
 
+(use-package plantuml-mode
+  :defer t
+  :ensure t
+  :pin melpa-stable
+  :init
+  (setq plantuml-jar-path "/opt/homebrew/Cellar/plantuml/1.2024.8/libexec/plantuml.jar")
+  (setq plantuml-default-exec-mode 'jar)
+  (setq plantuml-java-args '("-Djava.awt.headless=true" "-jar")))
+
 (provide 'init)
 ;;; init.el ends here
