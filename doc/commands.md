@@ -1,6 +1,19 @@
 Handy emacs/cider/clj commands
 ==============================
 
+XREF commands
+-------------
+
+cider, clojure-lsp, dumb-jump and other modes provide xref backends, see hook|variable
+`xref-backend-functions`.
+
+`M-.` - `xref-find-definitions`
+`M-?` - `xref-find-references`
+`M-,` - `xref-go-back`
+`C-M-,` - `xref-go-forward`
+`C-M-.` - `xref-find-apropros`
+
+
 CIDER commands
 --------------
 
@@ -24,9 +37,9 @@ LSP commands
 
 (prefixed by `C-c l`)
 
-`g r` - lsp-find-references
+`g r` - lsp-find-references (or simply xref `M-?`)
 `G r` - lsp-ui-peek-find-find-references
-`g g` - lsp-find-definition
+`g g` - lsp-find-definition (or simply xref `M-.`)
 `G g` - lsp-ui-peek-find-definitions
 `g s` - lsp-treemacs-symbols
 `g S` - lsp-treemacs-symbols-goto-symbol
@@ -44,4 +57,4 @@ VC (version control) mode
 `C-x v b s` - vc-switch-branch
 `C-x v b c` - vc-create-branch
 `C-x v +` - vc-update (pull)
-`C-c j` - counsel-git-grep
+`C-c j` - counsel-git-grep (`counsel-grep`, `counsel-rg`, and `counsel-fzf` also exist)
