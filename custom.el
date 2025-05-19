@@ -17,7 +17,7 @@
                      exec-path-from-shell flycheck go-mode idle-highlight-mode ivy ivy-xref js2-mode
                      kotlin-mode lsp-ivy lsp-mode lsp-treemacs lsp-ui markdown-mode paredit
                      plantuml-mode projectile solarized-dark solarized-theme swiper treemacs
-                     use-package yaml-mode))
+                     treemacs-projectile use-package yaml-mode))
  '(safe-local-variable-values
    '((whitespace-line-column . 79)
      (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)

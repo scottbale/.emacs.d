@@ -221,6 +221,11 @@
   (setq treemacs-is-never-other-window t)
   (treemacs-project-follow-mode t))
 
+(use-package treemacs-projectile
+  :defer t
+  :ensure t
+  :pin melpa-stable)
+
 ;;;; for homebrew
 (use-package exec-path-from-shell
   :defer 2
