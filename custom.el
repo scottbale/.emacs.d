@@ -12,7 +12,6 @@
  '(gnutls-algorithm-priority "normal:-vers-tls1.3")
  '(ignored-local-variable-values
    '((projectile-project-test-cmd . "clojure -M:dev:test") (projectile-project-test-cmd . "make")))
- '(initial-frame-alist '((top . 0) (left . 0) (width . 211) (height . 73)))
  '(package-selected-packages
    '(better-defaults cider clojure-mode company counsel dart-mode dockerfile-mode dumb-jump elixir-mode
                      exec-path-from-shell flycheck go-mode idle-highlight-mode ivy ivy-xref js2-mode

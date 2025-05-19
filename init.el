@@ -8,10 +8,10 @@
 ;; (load-theme 'modus-vivendi t)  ;; dark
 (load-theme 'modus-operandi t) ;; light
 
-;; make font bigger (see also custom.el 'initial-frame-alist TODO)
+;; make font bigger
 (set-face-attribute 'default nil :height 150)
-;; this doesn't seem to have any effect, or is overriden by custom.el:
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 100) (height . 73)))
+;; maximize window frame
+(setq initial-frame-alist '((fullscreen . maximized)))
 
 ;; Keep custom settings in a separate file.
 ;; (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
