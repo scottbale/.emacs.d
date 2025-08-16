@@ -340,3 +340,38 @@ I have not yet.
 `dump-jump` (see https://github.com/jacktasia/dumb-jump/issues/428 and
 https://github.com/jacktasia/dumb-jump/issues/448) so I configured `dump-jump` to use ordinary
 `grep`. If that ever proves to be too slow I may try ripgrep.
+
+
+## 25/05/20
+
+TODO
+
+* lightweight branch (no packages)
+* get `counsel-git-grep` alternative(s) working
+* projectile operations (e.g. find file) for non-git projects
+
+
+## 25/07/11
+
+`M-x toggle-truncate-lines` to toggle line wrapping
+`M-x toggle-frame-maximized` to maximize main emacs window/frame
+
+
+## 25/08/08
+
+TIL `gfm-view-mode`, `gfm-mode`, `markdown-view-mode`, `markdown-outline-up`, etc
+
+## 25/08/10
+
+universal project workflows
+
+* define project (e.g. `.git/` or `.projectile` at root of project)
+* xref
+  * navigate to defn of symbol at cursor - `M-.` maps to `xref-find-definition`
+  * find references to - `M-?` maps to `xref-find-references`
+  * find and open file named -
+    * `C-c p f` `projectile-find-file`
+    * `C-x C-f` `counsel-find-file`
+    * `C-x f` `counsel-recent-f`
+* search/find in buffer (e.g. `C-s` swiper)
+* grep throughout project (e.g. `C-c j - counsel-git-grep` but also for non-git projects)

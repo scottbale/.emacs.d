@@ -44,6 +44,7 @@ LSP commands
 `g s` - lsp-treemacs-symbols
 `g S` - lsp-treemacs-symbols-goto-symbol
 `r r` - lsp-rename
+`w r` - lsp-workspace-restart
 
 `M-x lsp-clojure-server-log`
 

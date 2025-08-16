@@ -9,7 +9,7 @@
 (load-theme 'modus-operandi t) ;; light
 
 ;; make font bigger
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 170)
 ;; maximize window frame
 (setq initial-frame-alist '((fullscreen . maximized)))
 
@@ -195,7 +195,7 @@
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-completion-system 'ivy)
-  (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/" . 1) ("~/dev/repo/" . 1)))
+  (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/repo/" . 1) ("~/dev/scratch/projects/" . 1)))
   (projectile-mode 1))
 
 (use-package dumb-jump
@@ -313,10 +313,6 @@
   :pin melpa
   :config (global-flycheck-mode))
 
-(use-package js2-mode :defer t :ensure t :pin melpa-stable)
-(use-package yaml-mode :defer t :ensure t :pin melpa-stable)
-(use-package dockerfile-mode :defer t :ensure t :pin melpa-stable)
-
 (use-package plantuml-mode
   :defer t
   :ensure t
@@ -325,6 +321,26 @@
   (setq plantuml-jar-path "/opt/homebrew/Cellar/plantuml/1.2024.8/libexec/plantuml.jar")
   (setq plantuml-default-exec-mode 'jar)
   (setq plantuml-java-args '("-Djava.awt.headless=true" "-jar")))
+
+(use-package eca
+  :defer t
+  :ensure t
+  :pin melpa
+  ;;:config
+  ;;(setq eca-server-install-path "/Users/scott.bale/.emacs.d/eca")
+  ;;(setq eca-custom-command '("java" "-jar" "/Users/scott.bale/Downloads/eca.jar" "server"))
+  )
+
+;; various programming languages etc major modes
+(use-package yaml-mode         :defer t :ensure t :pin melpa-stable)
+(use-package dockerfile-mode   :defer t :ensure t :pin melpa-stable)
+(use-package js2-mode          :defer t :ensure t :pin melpa-stable)
+(use-package typescript-mode   :defer t :ensure t :pin melpa-stable)
+(use-package kotlin-mode       :defer t :ensure t :pin melpa)
+(use-package go-mode           :defer t :ensure t :pin melpa-stable)
+(use-package elixir-mode       :defer t :ensure t :pin melpa-stable)
+(use-package haskell-mode      :defer t :ensure t :pin melpa-stable)
+(use-package scala-mode        :defer t :ensure t :pin melpa-stable)
 
 (provide 'init)
 ;;; init.el ends here
