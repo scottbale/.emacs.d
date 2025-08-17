@@ -13,9 +13,10 @@
  '(ignored-local-variable-values
    '((projectile-project-test-cmd . "clojure -M:dev:test") (projectile-project-test-cmd . "make")))
  '(package-selected-packages
-   '(cider company counsel dockerfile-mode dumb-jump eca elixir-mode exec-path-from-shell flycheck
-           go-mode haskell-mode ivy-xref js2-mode kotlin-mode lsp-ivy lsp-treemacs lsp-ui paredit
-           plantuml-mode scala-mode solarized-theme treemacs-projectile typescript-mode yaml-mode))
+   '(cider company counsel counsel-projectile dockerfile-mode dumb-jump eca elixir-mode
+           exec-path-from-shell flycheck go-mode haskell-mode ivy-xref js2-mode kotlin-mode lsp-ivy
+           lsp-treemacs lsp-ui paredit plantuml-mode scala-mode solarized-theme treemacs-projectile
+           typescript-mode yaml-mode))
  '(safe-local-variable-values
    '((whitespace-line-column . 79)
      (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)

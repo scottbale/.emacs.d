@@ -45,8 +45,8 @@
 ;; No double spaces at end of sentences.
 (set-default 'sentence-end-double-space nil)
 
-;; Use 100 chars as default line width.
-(set-default 'fill-column 100)
+;; Use 80 chars as default line width.
+(set-default 'fill-column 80)
 
 ;; Always show line and column numbers.
 (setq line-number-mode t)
@@ -104,7 +104,7 @@
 (recentf-mode t)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
+;; (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
@@ -121,6 +121,7 @@
 (add-to-list 'auto-mode-alist '("/CODEOWNERS" . conf-mode))
 
 ;;; use-package initialization
+;; https://github.com/jwiegley/use-package
 (when (version< emacs-version "29")
   (error "Emacs version 29+ required for use-package"))
 
@@ -142,6 +143,7 @@
 
 ;;; packages
 
+;; http://github.com/bbatsov/solarized-emacs
 (use-package solarized-theme
   ;; :defer 2
   :if window-system
@@ -149,14 +151,17 @@
   :pin melpa-stable
   :config (load-theme 'solarized-light t))
 
+;; https://github.com/company-mode/company-mode
 (use-package company :defer t :ensure t :pin melpa-stable)
 
+;; https://jblevins.org/projects/markdown-mode/
 (use-package markdown-mode
   :defer t
   :ensure t
   :pin melpa-stable
   :mode ("\\.md\\'" . gfm-mode))
 
+;; https://github.com/abo-abo/swiper
 (use-package ivy
   :defer t
   :ensure t
@@ -164,22 +169,24 @@
   :bind ("C-x b" . ivy-switch-buffer)
   :config (ivy-mode 1))
 
-(use-package swiper ;; same repo as ivy
+;; https://github.com/abo-abo/swiper
+(use-package swiper
   :defer t
   :ensure t
   :pin melpa-stable
   :bind (("C-s" . swiper)
          ("C-r" . swiper)))
 
-(use-package counsel ;; same repo as ivy
+;; https://github.com/abo-abo/swiper
+(use-package counsel
   :defer t
   :ensure t
   :pin melpa-stable
-  :bind (("C-x f" . counsel-recentf)
-         ("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)
-         ("C-c j" . counsel-git-grep)))
+  :bind (;; ("C-x f" . counsel-recentf)
+         ;; ("C-x C-f" . counsel-find-file)
+         ("M-x" . counsel-M-x)))
 
+;; https://github.com/alexmurray/ivy-xref
 (use-package ivy-xref
   :defer t
   :ensure t
@@ -188,6 +195,7 @@
   (setq xref-show-definitions-function #'ivy-xref-show-defs)
   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 
+;; https://github.com/bbatsov/projectile
 (use-package projectile
   :defer t
   :ensure t
@@ -198,6 +206,20 @@
   (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/repo/" . 1) ("~/dev/scratch/projects/" . 1)))
   (projectile-mode 1))
 
+;; Ivy integration for Projectile: interactive grep/search within projects
+;; https://github.com/ericdanan/counsel-projectile
+(use-package counsel-projectile
+  :defer t
+  :ensure t
+  :pin melpa
+  :after (counsel projectile)
+  :config
+  (counsel-projectile-mode 1)
+  :bind (:map projectile-command-map
+         ("s g" . counsel-projectile-git-grep)
+         ("s r" . counsel-projectile-rg)))
+
+;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
   :defer t
   :ensure t
@@ -209,8 +231,9 @@
   :config
   ;; (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
   ;; `git grep` won't work https://github.com/jacktasia/dumb-jump/issues/428
-  (setq dumb-jump-force-searcher 'grep))
+  (setq dumb-jump-force-searcher 'rg))
 
+;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs
   :defer t
   :ensure t
@@ -221,12 +244,14 @@
   (setq treemacs-is-never-other-window t)
   (treemacs-project-follow-mode t))
 
+;; https://github.com/Alexander-Miller/treemacs
 (use-package treemacs-projectile
   :defer t
   :ensure t
   :pin melpa-stable)
 
 ;;;; for homebrew
+;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
   :defer 2
   :if (memq window-system '(mac ns x))
@@ -235,6 +260,7 @@
   ;; :init (setq exec-path (append exec-path '("/opt/homebrew/bin")))
   :config (exec-path-from-shell-initialize))
 
+;; https://github.com/clojure-emacs/clojure-mode
 (use-package clojure-mode
   :defer t
   :ensure t
@@ -249,6 +275,7 @@
   ;; (require 'paredit)
   )
 
+;; https://github.com/clojure-emacs/cider
 (use-package cider
   :defer t
   :ensure t
@@ -257,6 +284,7 @@
   ;; A list of aliases to include when using the clojure cli.
   :config (setq cider-clojure-cli-aliases ":dev:test"))
 
+;; https://paredit.org
 (use-package paredit
   :defer t
   :ensure t
@@ -267,6 +295,7 @@
   ;; `paredit-convolute-sexp`
   :config (unbind-key "M-?" paredit-mode-map))
 
+;; https://github.com/emacs-lsp/lsp-mode
 (use-package lsp-mode
   :defer t
   :ensure t
@@ -285,12 +314,14 @@
                clojurex-mode))
      (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
+;; https://github.com/emacs-lsp/lsp-ui
 (use-package lsp-ui
   :defer t
   :ensure t
   :pin melpa-stable
   :commands lsp-ui-mode)
 
+;; https://github.com/emacs-lsp/lsp-treemacs
 (use-package lsp-treemacs
   :defer t
   :ensure t
@@ -301,11 +332,13 @@
               ("g S" . lsp-treemacs-symbols-goto-symbol)
               ("g c" . lsp-treemacs-call-hierarchy)))
 
+;; https://github.com/emacs-lsp/lsp-ivy
 (use-package lsp-ivy
   :defer t
   :ensure t
   :pin melpa-stable)
 
+;; https://github.com/flycheck/flycheck
 (use-package flycheck
   :defer t
   :ensure t
@@ -313,6 +346,7 @@
   :pin melpa
   :config (global-flycheck-mode))
 
+;; https://github.com/skuro/plantuml-mode
 (use-package plantuml-mode
   :defer t
   :ensure t
@@ -322,6 +356,7 @@
   (setq plantuml-default-exec-mode 'jar)
   (setq plantuml-java-args '("-Djava.awt.headless=true" "-jar")))
 
+;; https://github.com/editor-code-assistant/eca-emacs
 (use-package eca
   :defer t
   :ensure t
@@ -341,6 +376,7 @@
 (use-package elixir-mode       :defer t :ensure t :pin melpa-stable)
 (use-package haskell-mode      :defer t :ensure t :pin melpa-stable)
 (use-package scala-mode        :defer t :ensure t :pin melpa-stable)
+
 
 (provide 'init)
 ;;; init.el ends here
