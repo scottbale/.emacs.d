@@ -1,7 +1,8 @@
 Emacs Log
 =========
 
-> a sure way to destroy an emacs user's productivity is to suggest that what they want to do is not possible with emacs
+> a sure way to destroy an emacs user's productivity is to suggest that what
+> they want to do is not possible with emacs
 
 - [puredanger](https://twitter.com/puredanger/status/21066226956)
 
@@ -41,9 +42,13 @@ requires [dap-mode](https://github.com/emacs-lsp/dap-mode) - Debug Adapter Proto
 
 Is Treemacs necessary?
 
-Install Clojure LSP [via LSP mode](https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/#via-lsp-mode) didn't work - download kept timing out
+Install Clojure LSP [via LSP
+mode](https://emacs-lsp.github.io/lsp-mode/tutorials/clojure-guide/#via-lsp-mode)
+didn't work - download kept timing out
 
-Installed clojure LSP [via homebrew](https://github.com/clojure-lsp/clojure-lsp/blob/master/docs/installation.md#homebrew-macos-and-linux). Then set the following:
+Installed clojure LSP [via
+homebrew](https://github.com/clojure-lsp/clojure-lsp/blob/master/docs/installation.md#homebrew-macos-and-linux).
+Then set the following:
 
 ``` emacs-lisp
 (setq lsp-clojure-custom-server-command '("bash" "-c" "/usr/local/Cellar/clojure-lsp-native/2022.06.29-19.32.13/bin/clojure-lsp"))
@@ -67,15 +72,18 @@ Okay ignore all of the preceding.
 
 * I've now installed the latest Emacs `lsp-mode` package from melpa unstable.
 * I opened a sample namespace in a Clojure project
-* I interactively invoked `lsp` with prefix, `C-u M-x lsp`, which then prompted me to choose a specific language server, and `clojure-lsp` was one choice.
+* I interactively invoked `lsp` with prefix, `C-u M-x lsp`, which then prompted
+  me to choose a specific language server, and `clojure-lsp` was one choice.
 * Prompted me to choose project root, gave me multiple choices (I choice first option)
-* Got a message that it was unable to configure [company](https://company-mode.github.io/)
+* Got a message that it was unable to configure
+  [company](https://company-mode.github.io/)
 
         Unable to autoconfigure company-mode
 
 * Questions
   * How do I get emacs to automatically enable lsp-mode for a Clojure buffer
-  * Will it reuse the same running lsp process for that project? Looks like yes (when I manually `lsp` in a buffer in the same project)
+  * Will it reuse the same running lsp process for that project? Looks like yes
+    (when I manually `lsp` in a buffer in the same project)
   * How are on-disk projects delineated? Projectile integration?
 
 Stuff going in `~/.cache/`
@@ -84,7 +92,6 @@ Stuff going in `~/.cache/`
 ## 22/10/17
 
 updated a bunch of emacs packages
-
 
 ## 22/10/18
 
@@ -125,13 +132,14 @@ Cider TIL
   * `cider-xref-fn-refs-select C-c C-? C-r` known limitations
   * `cider-xref-fn-deps-select C-c C-? C-d`
 
-
 ## 22/10/25
 
-Investigating redoing my emacs config with `use-package`, following example of Sandra Sierra
+Investigating redoing my emacs config with `use-package`, following example of
+Sandra Sierra
 
 * [use-package](https://github.com/jwiegley/use-package)
-* Sandra Sierra's [emacs config](https://github.com/stuartsierra/dotfiles/tree/bf224ce71ec7e6434293a650449e6c648c4f2a63/.emacs.d)
+* Sandra Sierra's [emacs
+  config](https://github.com/stuartsierra/dotfiles/tree/bf224ce71ec7e6434293a650449e6c648c4f2a63/.emacs.d)
 
 Interconnectedness of `require`, `provide`, and `load-path`
 
@@ -139,7 +147,8 @@ Use both `melpa` and `melpa-stable` package archives - now `ivy-xref` is availab
 
 Got `ivy-xref` working (see `init.el`) - so lsp xref matches show in minibuffer
 
-How does one decide whether to tweak a setting in normal emacs config or in `custom.el`? For example, `initial-frame-alist`
+How does one decide whether to tweak a setting in normal emacs config or in
+`custom.el`? For example, `initial-frame-alist`
 
 * In normal config
 
@@ -161,7 +170,8 @@ Redid settings with `use-package` in branch of same name
 TODO
 
 * mac meta keys can be made conditional
-* local config (e.g. frame size) could go in `local.el` rather than `custom.el`, TBD whether needs VC
+* local config (e.g. frame size) could go in `local.el` rather than `custom.el`,
+  TBD whether needs VC
 * always open treemacs window?
 * always display line numbers?
 
@@ -202,7 +212,8 @@ Things to try later
 
         brew install emacs-mac --with-librsvg
 
-* Upgrade to emacs 29 (via homebrew? currently emacs is installed via cask `brew info homebrew/cask/emacs`)
+* Upgrade to emacs 29 (via homebrew? currently emacs is installed via cask `brew
+  info homebrew/cask/emacs`)
   * [bug report](https://debbugs.gnu.org/cgi/bugreport.cgi?bug=59081)
 
 
@@ -212,7 +223,8 @@ Logged `clojure-lsp` [issue 1758](https://github.com/clojure-lsp/clojure-lsp/iss
 
 Quick debugging recap
 
-* Workaround: set variable `lsp-enable-indentation` to `nil` to disable LSP rangeFormatting (I did this in `init.el`)
+* Workaround: set variable `lsp-enable-indentation` to `nil` to disable LSP
+  rangeFormatting (I did this in `init.el`)
 * From clojure buffer
   * open clojure-lsp server log buffer via `M-x lsp-clojure-server-log`
   * https://emacs-lsp.github.io/lsp-mode/page/troubleshooting/
@@ -225,34 +237,43 @@ Quick debugging recap
 Greg released a fix in a nightly, testing it out...
 
 * In Clojurians Slack, #clojure-lsp-builds
-* https://clojure-lsp.io/clients/#emacs documents steps to configure an alternate (e.g. nightly) clojure-lsp server path
-* https://clojure-lsp.io/installation/ has notes about different builds, recommends the native build (which is what I am currently using via homebrew)
+* https://clojure-lsp.io/clients/#emacs documents steps to configure an
+  alternate (e.g. nightly) clojure-lsp server path
+* https://clojure-lsp.io/installation/ has notes about different builds,
+  recommends the native build (which is what I am currently using via homebrew)
 * downloaded [amd64 native build](https://github.com/clojure-lsp/clojure-lsp-dev-builds/releases/download/2024.01.22-20.04.46-nightly/clojure-lsp-native-macos-amd64.zip)
   * unzip to `~/dev/temp/clojure-lsp/`
-  * Set var `lsp-clojure-custom-server-command` to point to this path (added `(setq lsp-clojure-custom-server-command '("/Users/myusername/dev/temp/clojure-lsp"))` under `:config` for `lsp-mode` in `init.el`)
+  * Set var `lsp-clojure-custom-server-command` to point to this path (added
+    `(setq lsp-clojure-custom-server-command
+    '("/Users/myusername/dev/temp/clojure-lsp"))` under `:config` for `lsp-mode`
+    in `init.el`)
   * MacOS complained that the nightly is unverified, so I had to open it from the finder and insist that it open. https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac
 * Re-enabled LSP rangeformatting and verbose client/server communication, then verified that everything worked
 
 
 ## 24/01/24
 
-How does XREF relate to e.g. CIDER, LSP? https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html
+How does XREF relate to e.g. CIDER, LSP?
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html
 
 ### LSP
 
 https://github.com/emacs-lsp/lsp-ivy/
-https://github.com/jwiegley/use-package#binding-to-keymaps very helpful in configuring LSP mode
+https://github.com/jwiegley/use-package#binding-to-keymaps very helpful in
+configuring LSP mode
 
 #### workspace / session
 
-lsp-mode "session" corresponds to LSP server "workspace" https://github.com/emacs-lsp/lsp-mode/discussions/3095
+lsp-mode "session" corresponds to LSP server "workspace"
+https://github.com/emacs-lsp/lsp-mode/discussions/3095
 
 * `M-x lsp-describe-session`
 
 
 ## 24/03/20
 
-TIL when cider spews an error message to the minibuffer, it is also in `*Messages*` buffer.
+TIL when cider spews an error message to the minibuffer, it is also in
+`*Messages*` buffer.
 
 * [Messages Buffer](https://www.emacswiki.org/emacs/MessagesBuffer)
 * [Echo Area](https://www.emacswiki.org/emacs/EchoArea)
@@ -266,7 +287,8 @@ A couple of lessons learned / reminders from setting up my new work laptop
 * initial trouble contacting elpa/melpa b/c of my flaky wifi
 * `use-package` was being initialized wrong but I didn't realize it on old macbook
   * needed `(require 'package)`, was able to delete `bootstrap.el`
-* `clojure-lsp` is [brew-installed](https://clojure-lsp.io/installation/#homebrew-macos-and-linux)
+* `clojure-lsp` is
+  [brew-installed](https://clojure-lsp.io/installation/#homebrew-macos-and-linux)
 * `exec-path-from-shell` is needed so that `clojure-lsp` is in `exec-path`
   * the shell that emacs launches is determined by `chsh`/`$SHELL`
 * `C-x C-e` to eval s-expr at point
@@ -281,14 +303,16 @@ Why is emacs so laggy when I'm typing in a buffer?
 * `M-x profiler-stop`
 * `M-x profiler-report`, drill down into report
 
-Using this, I discovered that `markdown-match-italic` function was using 47% CPU in a buffer for a
-specific markdown file. This was embedded within a larger subtree of font lock mode which was taking
-60% CPU. Disabling font-lock minor mode helped `M-x font-lock-mode`.
+Using this, I discovered that `markdown-match-italic` function was using 47% CPU
+in a buffer for a specific markdown file. This was embedded within a larger
+subtree of font lock mode which was taking 60% CPU. Disabling font-lock minor
+mode helped `M-x font-lock-mode`.
 
 
 ## 24/08/21
 
-In cider's package init, I set `cider-clojure-cli-aliases` variable so it is ":dev:test" by default.
+In cider's package init, I set `cider-clojure-cli-aliases` variable so it is
+":dev:test" by default.
 
 
 ## 24/08/22
@@ -303,7 +327,9 @@ Scheme in Emacs
 
 ## 24/09/02
 
-to tweak font size, modify `set-face-attribute` height in `init.el`, and make corresponding change to `initial-aframe-alist` width in `custom-el`. These pairs of value work for my external monitor.
+to tweak font size, modify `set-face-attribute` height in `init.el`, and make
+corresponding change to `initial-aframe-alist` width in `custom-el`. These pairs
+of value work for my external monitor.
 
 * for default face attribute, use width of `271`
 * for height of `150`, use width of `211`
@@ -325,21 +351,22 @@ line numbers `M-x display-line-numbers-mode`
 * `M-?` maps to `xref-find-references`
 * modes can provide xref backends
   * `xref-backend-functions` variable: list of functions, mode-dependent
-* "completing read" refers to interactively prompting user for input e.g. when multiple matches are
-  to be chosen from.
+* "completing read" refers to interactively prompting user for input e.g. when
+  multiple matches are to be chosen from.
 
-I installed [dumb-jump](https://github.com/jacktasia/dumb-jump) package and initial results are
-promising. By using its xref backend, I can do `M-.` at a symbol to jump to its definition. Using
-`xref-show-definitions-completing-read`, I get the ivy integration if there is more than one search
-result.
+I installed [dumb-jump](https://github.com/jacktasia/dumb-jump) package and
+initial results are promising. By using its xref backend, I can do `M-.` at a
+symbol to jump to its definition. Using `xref-show-definitions-completing-read`,
+I get the ivy integration if there is more than one search result.
 
-`dump-jump` recommends [installing ripgrep](https://github.com/BurntSushi/ripgrep#installation) but
-I have not yet.
+`dump-jump` recommends [installing
+ripgrep](https://github.com/BurntSushi/ripgrep#installation) but I have not yet.
 
-`dump-jump` uses `git grep` when it is available. Unfortunately, `git grep` stopped working for
-`dump-jump` (see https://github.com/jacktasia/dumb-jump/issues/428 and
-https://github.com/jacktasia/dumb-jump/issues/448) so I configured `dump-jump` to use ordinary
-`grep`. If that ever proves to be too slow I may try ripgrep.
+`dump-jump` uses `git grep` when it is available. Unfortunately, `git grep`
+stopped working for `dump-jump` (see
+https://github.com/jacktasia/dumb-jump/issues/428 and
+https://github.com/jacktasia/dumb-jump/issues/448) so I configured `dump-jump`
+to use ordinary `grep`. If that ever proves to be too slow I may try ripgrep.
 
 
 ## 25/05/20
@@ -374,4 +401,20 @@ universal project workflows
     * `C-x C-f` `counsel-find-file`
     * `C-x f` `counsel-recent-f`
 * search/find in buffer (e.g. `C-s` swiper)
-* grep throughout project (e.g. `C-c j - counsel-git-grep` but also for non-git projects)
+* grep throughout project (e.g. `C-c j - counsel-git-grep` but also for non-git
+  projects)
+
+## 25/08/16
+
+* Finally broke down and `brew install ripgrep`, set dumb jump prefered search
+  to `rg`
+* `counsel-projectile` package, with `...s g` and `...s r` bound to,
+  respectively, `counsel-projectile-git-grep` and `counsel-projectile-rg`: looks
+  promising. Now I can do interactive (completing-read) grepping within the
+  context of a project, which is almost always what I want to do.
+
+
+## 25/08/17
+
+I don't remember or understand why I have
+[company](https://github.com/company-mode/company-mode) package installed.
