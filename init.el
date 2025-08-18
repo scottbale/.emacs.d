@@ -190,9 +190,8 @@
   :defer t
   :ensure t
   :pin melpa-stable
-  :bind (;; ("C-x f" . counsel-recentf)
-         ;; ("C-x C-f" . counsel-find-file)
-         ("M-x" . counsel-M-x)))
+  :bind ("C-x f" . counsel-recentf)
+  :config (counsel-mode 1))
 
 ;; https://github.com/alexmurray/ivy-xref
 (use-package ivy-xref
