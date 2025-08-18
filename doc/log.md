@@ -392,7 +392,16 @@ TIL `gfm-view-mode`, `gfm-mode`, `markdown-view-mode`, `markdown-outline-up`, et
 
 universal project workflows
 
-* define project (e.g. `.git/` or `.projectile` at root of project)
+* projects
+  * define project (e.g. `.git/` or `.projectile` at root of project)
+  * configure search path(s) for projects
+  * grep throughout project (`counsel-projectile-git-grep` or
+    `counsel-projectile-rg`)
+    * maybe I want a smart grep that uses the first available grep method for a
+      given project, in this order of preference: `git grep`, `rg`, `[r]grep`? But
+      only if they behave the same i.e. search the entire project as I type.
+  * find file anywhere in project (`counsel-projectile-find-file`)
+  * integrates with xref
 * xref
   * navigate to defn of symbol at cursor - `M-.` maps to `xref-find-definition`
   * find references to - `M-?` maps to `xref-find-references`
@@ -401,8 +410,6 @@ universal project workflows
     * `C-x C-f` `counsel-find-file`
     * `C-x f` `counsel-recent-f`
 * search/find in buffer (e.g. `C-s` swiper)
-* grep throughout project (e.g. `C-c j - counsel-git-grep` but also for non-git
-  projects)
 
 ## 25/08/16
 
@@ -416,5 +423,85 @@ universal project workflows
 
 ## 25/08/17
 
-I don't remember or understand why I have
+* I don't remember or understand why I have
 [company](https://github.com/company-mode/company-mode) package installed.
+> I'll enable Company for programming modes and set some sensible defaults (idle delay, prefix length, tooltip alignment). This will make LSP-backed completions show up via company-capf when lsp-mode is active. Proceeding to update the company block in init.el.
+> All set. Company is now enabled in programming modes and tuned for a responsive experience:
+> - Enabled: company-mode on prog-mode buffers
+> - Settings:
+>   - company-idle-delay = 0.15
+>   - company-minimum-prefix-length = 1
+>   - company-selection-wrap-around = t
+>   - company-tooltip-align-annotations = t
+> With lsp-mode, completions will come through company-capf automatically. If
+> you want this globally (not just prog-mode), I can switch it to
+> global-company-mode.
+* I'm reviewing/cleaning up my config of `find-file`, `projectile-find-file`,
+  `counsel-find-file` and `counsel-projectile-find-file`
+  * `find-file` (stock Emacs) and `counsel-find-file` variant
+  * `projectile-find-file` and `counsel-projectile-find-file` variant
+
+> the command “project file find” (`projectile-find-file` or
+>   `counsel-projectile-find-file`) ... For non-Git projects (e.g., just an empty
+>   .projectile to mark the root), Projectile relies on an indexing backend to
+>   list files. By default (indexing method 'alien'), Projectile prefers ripgrep
+>   (rg), then fd, then find.
+> M-x describe-variable RET projectile-indexing-method (likely ‘alien’)
+> M-: (executable-find "rg")
+> M-: (length (projectile-current-project-files)) RET — if 0, indexing failed.
+> M-x describe-variable RET projectile-generic-command
+
+
+## 25/08/18
+
+TIL `M-x describe-personal-keybindings`
+
+Reading up on [use package](https://github.com/jwiegley/use-package#modes-and-interpreters)
+
+> If you aren't using :commands, :bind, :bind*, :bind-keymap, :bind-keymap*,
+> :mode, :interpreter, or :hook (all of which imply :defer; see the docstring
+> for use-package for a brief description of each), you can still defer loading
+> with the :defer keyword:
+
+This is in the context of packages `ivy`, `counsel` and `swiper` and their
+keybindings. For example when I first start emacs, `C-h v` to describe a
+variable does _not_ use the `counsel-describe-variable` function, but `C-x f`
+_does_ use `counsel-recentf`, because I have a `:bind ("C-x f" .
+counsel-recentf)` in my counsel package config that creates an autoload for that
+keybinding - it will happen the first time I use it.
+
+TIL `<prefix> C-h` e.g. `C-x p C-h` shows all of the bindings starting with that
+prefix, in a *Help* buffer.
+
+TIL `C-c p` is the `projectile` command map, `C-x p` is the `project` command
+map. `project` is presumably some Emacs built-in project abstraction, and
+`projectile` is the current provider?
+https://docs.projectile.mx/projectile/faq.html#how-does-projectile-compare-to-the-built-in-project-el
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Projects.html
+
+Observation about `C-h v xref-backend-functions`: If I have an active repl for
+one project, and am navigating through another unrelated project, navigation is
+compromised for the second project because it is not in the scope of the cider
+backend.
+
+## 25/08/19
+
+TODO
+
+I want to clean up my keybindings. I want my major modes to adhere to the
+convention of `C-c C-<letter>` keymap prefix. But some major modes I have
+installed don't adhere.
+
+* find a way to understand what all of the keybindings I have installed are
+* unbind all keybindings in `markdown-mode`, `java-mode`, others?
+* Bring `projectile`, `lsp`, `cider` into compliance.
+
+## 25/08/21
+
+`counsel-projectile-switch-project` seems noticeably draggier than
+`projectile-switch-project`
+
+The find file part of `projectile-switch-project` or `projectile-find-file` does
+not do what I expect when the project is not a git repository (like the
+greenhouse projects that just use a .projectile file). (However, `counsel-fzf`
+does.) See notes above re: projectile indexing backend "alien".

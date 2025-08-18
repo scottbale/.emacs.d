@@ -25,7 +25,6 @@ Packages
 Some links and notes (mostly to self) about the packages I mainly use.
 
 * [counsel](https://github.com/abo-abo/swiper) - collection of Ivy-enhanced versions of common Emacs commands.
-* [dash](https://github.com/magnars/dash.el) - A modern list library for Emacs
 * [ivy](https://github.com/abo-abo/swiper) - generic completion mechanism for Emacs.
   * replaces [Helm](https://github.com/emacs-helm/helm), Ido
 * [flycheck](http://www.flycheck.org) - Minor mode for on-the-fly syntax checking.

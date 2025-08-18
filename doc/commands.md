@@ -58,4 +58,4 @@ VC (version control) mode
 `C-x v b s` - vc-switch-branch
 `C-x v b c` - vc-create-branch
 `C-x v +` - vc-update (pull)
-`C-c j` - counsel-git-grep (`counsel-grep`, `counsel-rg`, and `counsel-fzf` also exist)
+`counsel-git-grep` (`counsel-grep`, `counsel-rg`, and `counsel-fzf` also exist, as do `counsel-projectile-git-grep`, `counsel-projectile-grep` and `counsel-projectile-rg`)
