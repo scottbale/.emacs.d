@@ -152,7 +152,15 @@
   :config (load-theme 'solarized-light t))
 
 ;; https://github.com/company-mode/company-mode
-(use-package company :defer t :ensure t :pin melpa-stable)
+(use-package company
+  :ensure t
+  :pin melpa-stable
+  :hook (prog-mode . company-mode)
+  :custom
+  (company-idle-delay 0.15)
+  (company-minimum-prefix-length 1)
+  (company-selection-wrap-around t)
+  (company-tooltip-align-annotations t))
 
 ;; https://jblevins.org/projects/markdown-mode/
 (use-package markdown-mode
