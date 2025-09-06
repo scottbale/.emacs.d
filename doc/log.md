@@ -411,6 +411,20 @@ universal project workflows
     * `C-x f` `counsel-recent-f`
 * search/find in buffer (e.g. `C-s` swiper)
 
+### test script
+
+#### non-git project
+
+* open a scratch project:
+  * `C-c p p projectile-switch-project` and select a scratch project
+  * type "scra java"
+  * prompt for "Find file", type and select README
+    _see notes below re projectile-find-file_
+* search for text within a project:
+  * grep for "losses"
+* find a file within a project: `C-c p f projectile-find-file`
+    * _does not use Ivy completion_
+
 ## 25/08/16
 
 * Finally broke down and `brew install ripgrep`, set dumb jump prefered search
@@ -488,6 +502,8 @@ backend.
 
 TODO
 
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Key-Binding-Conventions.html
+
 I want to clean up my keybindings. I want my major modes to adhere to the
 convention of `C-c C-<letter>` keymap prefix. But some major modes I have
 installed don't adhere.
@@ -495,6 +511,12 @@ installed don't adhere.
 * find a way to understand what all of the keybindings I have installed are
 * unbind all keybindings in `markdown-mode`, `java-mode`, others?
 * Bring `projectile`, `lsp`, `cider` into compliance.
+
+[update] projectile is a _minor_ mode, so `C-c C-p` doesn't comply.
+
+Cursor found no major modes in my config with violations. Some minor modes
+(`lsp-mode`, `treemacs`, `projectile`) use `C-c <letter>` space reserved for
+users, but these are widely accepted exceptions / de facto standards.
 
 ## 25/08/21
 
@@ -509,3 +531,10 @@ does.) See notes above re: projectile indexing backend "alien".
 ## 25/09/06
 
 I removed `counsel-projectile` package and keybindings.
+
+Seriously considering it's not worth fighting to make projectile work with non-git projects. It might be less bad to just _always_ initialize a scratch project with git.
+
+`use-package` Further reading:
+
+* https://batsov.com/articles/2025/04/17/using-use-package-the-right-way/
+* https://www.gnu.org/software/emacs/manual/html_mono/use-package.html
