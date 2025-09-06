@@ -11,25 +11,30 @@
      "4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" default))
  '(gnutls-algorithm-priority "normal:-vers-tls1.3")
  '(ignored-local-variable-values
-   '((projectile-project-test-cmd . "clojure -M:dev:test") (projectile-project-test-cmd . "make")))
+   '((projectile-project-test-cmd . "clojure -M:dev:test")
+     (projectile-project-test-cmd . "make")))
  '(package-selected-packages
-   '(cider company counsel counsel-projectile dockerfile-mode dumb-jump eca elixir-mode
-           exec-path-from-shell flycheck go-mode haskell-mode ivy-xref js2-mode kotlin-mode lsp-ivy
-           lsp-treemacs lsp-ui paredit plantuml-mode scala-mode solarized-theme treemacs-projectile
-           typescript-mode yaml-mode))
+   '(cider company counsel dockerfile-mode dumb-jump eca elixir-mode
+           exec-path-from-shell flycheck go-mode haskell-mode ivy-xref js2-mode
+           kotlin-mode lsp-ivy lsp-treemacs lsp-ui paredit plantuml-mode
+           scala-mode solarized-theme treemacs-projectile typescript-mode
+           yaml-mode))
  '(safe-local-variable-values
    '((whitespace-line-column . 79)
      (elisp-lint-indent-specs (if-let* . 2) (when-let* . 1) (let* . defun)
                               (nrepl-dbind-response . 2) (cider-save-marker . 1)
-                              (cider-propertize-region . 1) (cider-map-repls . 1)
-                              (cider--jack-in . 1) (cider--make-result-overlay . 1)
-                              (insert-label . defun) (insert-align-label . defun)
-                              (insert-rect . defun) (cl-defun . 2) (with-parsed-tramp-file-name . 2)
+                              (cider-propertize-region . 1)
+                              (cider-map-repls . 1) (cider--jack-in . 1)
+                              (cider--make-result-overlay . 1)
+                              (insert-label . defun)
+                              (insert-align-label . defun) (insert-rect . defun)
+                              (cl-defun . 2) (with-parsed-tramp-file-name . 2)
                               (thread-first . 0) (thread-last . 0)
                               (transient-define-prefix . defmacro)
                               (transient-define-suffix . defmacro))
      (checkdoc-package-keywords-flag) (cider-clojure-cli-aliases . ":dev")
-     (cider-clojure-cli-aliases . ":dev:examples") (cider-clojure-cli-aliases . ":test:dev:local")
+     (cider-clojure-cli-aliases . ":dev:examples")
+     (cider-clojure-cli-aliases . ":test:dev:local")
      (cider-clojure-cli-aliases . ":test:examples:dev"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -213,19 +213,6 @@
   (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/repo/" . 1) ("~/dev/scratch/projects/" . 1)))
   (projectile-mode 1))
 
-;; Ivy integration for Projectile: interactive grep/search within projects
-;; https://github.com/ericdanan/counsel-projectile
-(use-package counsel-projectile
-  :defer t
-  :ensure t
-  :pin melpa
-  :after (counsel projectile)
-  :config
-  (counsel-projectile-mode 1)
-  :bind (:map projectile-command-map
-         ("s g" . counsel-projectile-git-grep)
-         ("s r" . counsel-projectile-rg)))
-
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
   :defer t

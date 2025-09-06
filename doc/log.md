@@ -395,8 +395,8 @@ universal project workflows
 * projects
   * define project (e.g. `.git/` or `.projectile` at root of project)
   * configure search path(s) for projects
-  * grep throughout project (`counsel-projectile-git-grep` or
-    `counsel-projectile-rg`)
+  * grep throughout project (`projectile-[git-]grep` or
+    `projectile-rg`)
     * maybe I want a smart grep that uses the first available grep method for a
       given project, in this order of preference: `git grep`, `rg`, `[r]grep`? But
       only if they behave the same i.e. search the entire project as I type.
@@ -505,3 +505,7 @@ The find file part of `projectile-switch-project` or `projectile-find-file` does
 not do what I expect when the project is not a git repository (like the
 greenhouse projects that just use a .projectile file). (However, `counsel-fzf`
 does.) See notes above re: projectile indexing backend "alien".
+
+## 25/09/06
+
+I removed `counsel-projectile` package and keybindings.
