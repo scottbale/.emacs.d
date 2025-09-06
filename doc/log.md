@@ -548,3 +548,8 @@ I've removed the `:defer t` from ivy, counsel, swiper and projectile packages.
 I've decided they are fundamental enough that I want them eagerly loaded and
 ready to go every time Emacs starts up. (I may reverse that decision for
 Projectile.)
+
+### WIP project.el
+
+Migrating to project.el. It's kind of deficient if the project is not under
+version control.

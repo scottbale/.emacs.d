@@ -205,18 +205,16 @@
   (setq xref-show-definitions-function #'ivy-xref-show-defs)
   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 
-;; https://github.com/bbatsov/projectile
-(use-package projectile
-  :ensure t
-  :pin melpa-stable
-  :after ivy
-  :bind-keymap ("C-c p" . projectile-command-map)
+;; Built-in project.el
+(use-package project
   :config
-  (setq projectile-use-git-grep t)
-  (setq projectile-completion-system 'ivy)
-  (setq projectile-indexing-method 'alien)
-  (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/repo/" . 1) ("~/dev/scratch/projects/" . 1)))
-  (projectile-mode 1))
+  ;; Auto-discover projects in specified directories (non-recursive for speed)
+  ;; See also: `project-list-file` variable, which is the location where list of
+  ;; known projects are saved
+  (project-remember-projects-under "~/.emacs.d/" nil)
+  (project-remember-projects-under "~/dev/nu/" nil)
+  (project-remember-projects-under "~/dev/repo/" nil)
+  (project-remember-projects-under "~/dev/scratch/projects/" nil))
 
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
@@ -242,12 +240,6 @@
   :config
   (setq treemacs-is-never-other-window t)
   (treemacs-project-follow-mode t))
-
-;; https://github.com/Alexander-Miller/treemacs
-(use-package treemacs-projectile
-  :defer t
-  :ensure t
-  :pin melpa-stable)
 
 ;;;; for homebrew
 ;; https://github.com/purcell/exec-path-from-shell

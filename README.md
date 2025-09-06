@@ -28,11 +28,9 @@ Some links and notes (mostly to self) about the packages I mainly use.
 * [ivy](https://github.com/abo-abo/swiper) - generic completion mechanism for Emacs.
   * replaces [Helm](https://github.com/emacs-helm/helm), Ido
 * [flycheck](http://www.flycheck.org) - Minor mode for on-the-fly syntax checking.
-* [projectile](https://github.com/bbatsov/projectile) - project identification and interaction
 * paredit - minor mode for editing parentheses
 * [swiper](https://github.com/abo-abo/swiper) - an Ivy-enhanced alternative to Isearch.
 * [treemacs](https://github.com/Alexander-Miller/treemacs) - a tree layout file explorer for Emacs
-  * [treemacs-projectile](https://github.com/Alexander-Miller/treemacs)
 * [lsp-mode](https://github.com/emacs-lsp/lsp-mode) - Language Server Protocol Support for Emacs
   * [lsp-treemacs](https://github.com/emacs-lsp/lsp-treemacs)
 * [cider](https://github.com/clojure-emacs/cider)
