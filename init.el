@@ -171,7 +171,6 @@
 
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
-  :defer t
   :ensure t
   :pin melpa-stable
   :bind ("C-x b" . ivy-switch-buffer)
@@ -207,9 +206,16 @@
   :defer t
   :ensure t
   :pin melpa-stable
+  :after ivy
   :bind-keymap ("C-c p" . projectile-command-map)
+  :bind (:map projectile-command-map
+         ("s g" . counsel-git-grep)
+         ("s r" . counsel-rg)
+         ("s s" . counsel-ag))
   :config
+  (setq projectile-use-git-grep t)
   (setq projectile-completion-system 'ivy)
+  (setq projectile-indexing-method 'alien)
   (setq projectile-project-search-path '("~/.emacs.d/" ("~/dev/nu/" . 1) ("~/dev/repo/" . 1) ("~/dev/scratch/projects/" . 1)))
   (projectile-mode 1))
 
