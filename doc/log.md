@@ -538,3 +538,13 @@ Seriously considering it's not worth fighting to make projectile work with non-g
 
 * https://batsov.com/articles/2025/04/17/using-use-package-the-right-way/
 * https://www.gnu.org/software/emacs/manual/html_mono/use-package.html
+
+Created a counsel keymap for my most frequently used counsel functions. My
+reasoning is to decouple them from projectile (or project.el if I migrate to
+that) since they're not really tied to projects anyway, even though I wish they
+were.
+
+I've removed the `:defer t` from ivy, counsel, swiper and projectile packages.
+I've decided they are fundamental enough that I want them eagerly loaded and
+ready to go every time Emacs starts up. (I may reverse that decision for
+Projectile.)

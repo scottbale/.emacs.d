@@ -178,7 +178,6 @@
 
 ;; https://github.com/abo-abo/swiper
 (use-package swiper
-  :defer t
   :ensure t
   :pin melpa-stable
   :bind (("C-s" . swiper)
@@ -186,10 +185,15 @@
 
 ;; https://github.com/abo-abo/swiper
 (use-package counsel
-  :defer t
   :ensure t
   :pin melpa-stable
-  :bind ("C-x f" . counsel-recentf)
+  :bind (("C-x f" . counsel-recentf)
+         :map counsel-mode-map
+         :prefix-map counsel-prefix-map
+         :prefix "C-c c"
+         ("g" . counsel-git-grep)
+         ("r" . counsel-rg)
+         ("f" . counsel-fzf))
   :config (counsel-mode 1))
 
 ;; https://github.com/alexmurray/ivy-xref
@@ -203,15 +207,10 @@
 
 ;; https://github.com/bbatsov/projectile
 (use-package projectile
-  :defer t
   :ensure t
   :pin melpa-stable
   :after ivy
   :bind-keymap ("C-c p" . projectile-command-map)
-  :bind (:map projectile-command-map
-         ("s g" . counsel-git-grep)
-         ("s r" . counsel-rg)
-         ("s s" . counsel-ag))
   :config
   (setq projectile-use-git-grep t)
   (setq projectile-completion-system 'ivy)
