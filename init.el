@@ -208,6 +208,19 @@
 ;; Built-in project.el
 (use-package project
   :config
+  ;; Exclude home directory from being treated as a project
+  (defun my/project-ignore-home-directory (dir)
+    "Prevent home directory from being treated as a project."
+    (when (string-equal (expand-file-name dir) (expand-file-name "~/"))
+      nil))
+
+  ;; Add our ignore function to the beginning of project detection
+  (add-hook 'project-find-functions #'my/project-ignore-home-directory -100)
+
+  ;; Support .dir-locals.el as project markers for non-VC projects
+  (when (version<= "29" emacs-version)
+    (add-to-list 'project-vc-extra-root-markers ".dir-locals.el"))
+
   ;; Auto-discover projects in specified directories (non-recursive for speed)
   ;; See also: `project-list-file` variable, which is the location where list of
   ;; known projects are saved
