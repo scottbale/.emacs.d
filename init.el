@@ -227,7 +227,8 @@
   (project-remember-projects-under "~/.emacs.d/" nil)
   (project-remember-projects-under "~/dev/nu/" nil)
   (project-remember-projects-under "~/dev/repo/" nil)
-  (project-remember-projects-under "~/dev/scratch/projects/" nil))
+  (project-remember-projects-under "~/dev/scratch/projects/" nil)
+  (project-remember-projects-under "~/dev/greenhouse/" nil))
 
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
