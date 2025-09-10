@@ -5,8 +5,13 @@ ido.last
 places
 projectile.cache
 projectile-bookmarks.eld
+projects
 recentf
+tramp
 .cache/
 backups/
+eca/
 elpa/
 eshell/
+transient/
+url/
