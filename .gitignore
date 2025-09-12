@@ -12,6 +12,7 @@ tramp
 backups/
 eca/
 elpa/
-eshell/
+eshell/*
+!/eshell/alias
 transient/
 url/
