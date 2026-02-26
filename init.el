@@ -307,7 +307,8 @@
   :pin melpa-stable
   :hook ((clojure-mode . lsp)
          (clojurec-mode . lsp)
-         (clojurescript-mode . lsp))
+         (clojurescript-mode . lsp)
+         (edn-mode . lsp))
   :bind-keymap ("C-c l" . lsp-command-map)
   :init (setq lsp-enable-indentation nil)
   :config
@@ -316,7 +317,8 @@
   (dolist (m '(clojure-mode
                clojurec-mode
                clojurescript-mode
-               clojurex-mode))
+               clojurex-mode
+               edn-mode))
      (add-to-list 'lsp-language-id-configuration `(,m . "clojure"))))
 
 ;; https://github.com/emacs-lsp/lsp-ui
