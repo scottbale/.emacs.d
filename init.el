@@ -169,6 +169,11 @@
   :pin melpa-stable
   :mode ("\\.md\\'" . gfm-mode))
 
+(use-package markdown-mermaid
+  :vc (:url "https://github.com/pasunboneleve/markdown-mermaid" :rev :newest)
+  :bind (:map markdown-mode-map
+              ("C-c m" . markdown-mermaid-preview)))
+
 ;; https://github.com/abo-abo/swiper
 (use-package ivy
   :ensure t
@@ -307,7 +312,8 @@
   :hook ((clojure-mode . lsp)
          (clojurec-mode . lsp)
          (clojurescript-mode . lsp)
-         (edn-mode . lsp))
+         (edn-mode . lsp)
+         (go-mode . lsp))
   :bind-keymap ("C-c l" . lsp-command-map)
   :init (setq lsp-enable-indentation nil)
   :config
