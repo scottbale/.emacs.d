@@ -225,10 +225,9 @@
   ;; See also: `project-list-file` variable, which is the location where list of
   ;; known projects are saved
   (project-remember-projects-under "~/.emacs.d/" nil)
-  (project-remember-projects-under "~/dev/nu/" nil)
   (project-remember-projects-under "~/dev/repo/" nil)
-  (project-remember-projects-under "~/dev/scratch/projects/" nil)
-  (project-remember-projects-under "~/dev/greenhouse/" nil))
+  ;; (project-remember-projects-under "~/dev/scratch/projects/" nil)
+  )
 
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
