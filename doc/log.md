@@ -553,3 +553,12 @@ Projectile.)
 
 Migrating to project.el. It's kind of deficient if the project is not under
 version control.
+
+
+## 26/05/29
+
+How to do multi-line editing aka "Rectangle Editing".
+
+* Mark the region `C-spc`
+* Insert text: `C-x r t` (`string-rectangle`), type text
+* Delete/kill: `C-x r d` or `C-x r k`
